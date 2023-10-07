@@ -10,7 +10,7 @@ import { logo, menu, close } from '../assets'
 
 const Navbar = () => {
 
-  const [active, setActive] = useState('asdsd')//active to track donde estaos en la page asdas
+  const [active, setActive] = useState('')//active to track donde estaos en la page asdas
 
 
   const [toggle, setToggle] = useState(false);
