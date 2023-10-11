@@ -4,6 +4,7 @@ import { OrbitControls, Preload, useGLTF } from "@react-three/drei"; // helpers 
 
 import CanvasLoader from "../Loader"; //un simple loader mientras se pone la img
 
+// ESTO NO ES EL COMPONENTE que tallamo como tal desd ehero
 const Computers = ({ isMobile }) => {
   const computer = useGLTF("./desktop_pc/scene.gltf"); //import del 3D modelo, GLTF (from public forlder)
 
@@ -29,8 +30,8 @@ const Computers = ({ isMobile }) => {
 
       <primitive
         object={computer.scene}
-        scale={isMobile ? 0.7 : 0.75}
-        position={isMobile ? [0, -3, -2.2] : [0, -3.25, -1.5]}
+        scale={isMobile ? 0.7 : 0.75} // le bajamos l escala en mobile
+        position={isMobile ? [0, -3, -2.2] : [0, -3.25, -1.5]} //le cambiamos tambien la posicon
         rotation={[-0.01, -0.2, -0.1]}
       />
       {/* en primitive, metemos el 3js element a mostrar, ajustamos su tamaño y tales */}
@@ -44,7 +45,7 @@ const ComputersCanvas = () => {
 
   useEffect(() => {
     // Add a listener for changes to the screen size
-    const mediaQuery = window.matchMedia("(max-width: 500px)");
+    const mediaQuery = window.matchMedia("(max-width: 500px)"); //veo si estoy en mobile (esto al inicio de la carg)
 
     // Set the initial value of the `isMobile` state variable
     setIsMobile(mediaQuery.matches);
@@ -52,7 +53,7 @@ const ComputersCanvas = () => {
     // Define a callback function to handle changes to the media query
     const handleMediaQueryChange = (event) => {
       setIsMobile(event.matches);
-    };
+    }; //creo envento para saber cambios en el query size
 
     // Add the callback function as a listener for changes to the media query
     mediaQuery.addEventListener("change", handleMediaQueryChange);
@@ -61,7 +62,7 @@ const ComputersCanvas = () => {
     return () => {
       mediaQuery.removeEventListener("change", handleMediaQueryChange);
     };
-  }, []);
+  }, []); //media querie para saber si cambio el tamano de la pantalla, y si estoy en mobile
 
   return (
     <Canvas
