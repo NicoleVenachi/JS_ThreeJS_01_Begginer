@@ -45,7 +45,7 @@ const ComputersCanvas = () => {
 
   useEffect(() => {
     // Add a listener for changes to the screen size
-    const mediaQuery = window.matchMedia("(max-width: 500px)"); //veo si estoy en mobile (esto al inicio de la carg)
+    const mediaQuery = window.matchMedia("(max-width: 500px)"); //listener para saber si se cumple ese match o no
 
     // Set the initial value of the `isMobile` state variable
     setIsMobile(mediaQuery.matches);
