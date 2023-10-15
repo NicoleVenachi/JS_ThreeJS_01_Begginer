@@ -66,4 +66,5 @@ const About = () => {
   );
 };
 
+//lo que exporto e el About pero wrapped por el sectionWrapper
 export default SectionWrapper(About, "about");
